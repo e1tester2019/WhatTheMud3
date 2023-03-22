@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="WhatTheMud3.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WhatTheMud3"
+    xmlns:views="clr-namespace:WhatTheMud3.Views"
+    Shell.FlyoutBehavior="Disabled">
+
+	<TabBar>
+		<Tab Title="Well Config">
+			<ShellContent
+				Title="Home"
+				ContentTemplate="{DataTemplate local:MainPage}"
+				Route="MainPage" />
+		</Tab>
+		<Tab Title="Pumper">
+			<ShellContent
+				Title="Pumper"
+				ContentTemplate="{DataTemplate views:PumperPage}"
+				Route="PumperPage" />
+		</Tab>
+		<Tab Title="Settings">
+			<ShellContent
+				Title="Settings"
+				ContentTemplate="{DataTemplate views:SettingsPage}"
+				Route="SettingsPage" />
+		</Tab>
+	</TabBar>
+
+
+</Shell>
