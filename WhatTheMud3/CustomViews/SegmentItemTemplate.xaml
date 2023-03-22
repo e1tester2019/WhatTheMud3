@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<DataTemplate xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:models="clr-namespace:WhatTheMud3.Models"
+          xmlns:vM="clr-namespace:WhatTheMud3.ViewModels.DrillStringBuilder"
+          x:Class="WhatTheMud3.CustomViews.SegmentItemTemplate"
+          x:DataType="models:Segment">
+
+	<Frame Padding="5">
+		<Frame.GestureRecognizers>
+			<TapGestureRecognizer CommandParameter="{Binding .}"
+			                      Command="{Binding Source={RelativeSource AncestorType={x:Type vM:DrillStringBuilderPageViewModel}}, Path=GoToDrillEditDrillStringSegmentPageCommand}" />
+			<SwipeGestureRecognizer Direction="Left"
+			                        CommandParameter="{Binding .}"
+			                        Command="{Binding Source={RelativeSource AncestorType={x:Type vM:DrillStringBuilderPageViewModel}}, Path=DeleteDrillStringSegmentCommand}" />
+		</Frame.GestureRecognizers>
+		<VerticalStackLayout>
+			<Label>
+				<Label.Text>
+					<MultiBinding StringFormat="{}{0}mm x {1}mm from {2}m to {3}m">
+						<Binding Path="OuterDiameter" />
+						<Binding Path="InnerDiameter" />
+						<Binding Path="TopDepth" />
+						<Binding Path="BottomDepth" />
+					</MultiBinding>
+				</Label.Text>
+			</Label>
+			<Label>
+				<Label.Text>
+					<MultiBinding StringFormat="{}{0}kg/m3 {1}">
+						<Binding Path="MudDensity" />
+						<Binding Path="FluidType" />
+					</MultiBinding>
+				</Label.Text>
+			</Label>
+		</VerticalStackLayout>
+	</Frame>
+</DataTemplate>

@@ -10,14 +10,34 @@ public partial class AppModel : ObservableObject
 	
 	#region Collection Parameters
 
-	[ObservableProperty] private ObservableCollection<Segment> casings = new()
+	[ObservableProperty] private ObservableCollection<Segment> drillString = new()
 	{
 		new Segment
 		{
 			Id = Guid.NewGuid(),
-			OuterDiameter="177.8"
+			OuterDiameter="177.8",
+			InnerDiameter = "97.18",
+			BottomDepth = "2000",
+			TopDepth = "0",
+			WeightInAir = "22.47",
+			FluidType = "Oil Based Mud"
 		}
 	};
 
 	#endregion
+
+	[RelayCommand]
+	public void AddDrillString()
+	{
+		DrillString.Add( new Segment
+		{
+			Id = Guid.NewGuid(),
+			OuterDiameter="222.2",
+			InnerDiameter = "97.18",
+			BottomDepth = "2000",
+			TopDepth = "0",
+			WeightInAir = "22.47",
+			FluidType = "Oil Based Mud"
+		});
+	}
 }

@@ -12,7 +12,7 @@ public partial class MainPageViewModel : BaseViewModel
 	[RelayCommand]
 	async Task GoToDrillStringBuilderPage()
 	{
-		await Shell.Current.GoToAsync($"{nameof(MainPage)}", true);
+		await Shell.Current.GoToAsync($"{nameof(DrillStringBuilderPage)}", true);
 	}
 	[RelayCommand]
 	public void ToggleDarkMode()

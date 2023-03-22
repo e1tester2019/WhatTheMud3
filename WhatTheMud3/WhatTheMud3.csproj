@@ -58,11 +58,18 @@
       <MauiXaml Update="Views\MainPage.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
+      <MauiXaml Update="ViewModels\DrillStringBuilder\EditDrillStringSectionPageViewModel.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
       <Compile Update="Views\MainPage.xaml.cs">
         <DependentUpon>MainPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="ViewModels\DrillStringBuilder\EditDrillStringSectionPageViewModel.xaml.cs">
+        <DependentUpon>EditDrillStringSectionPageViewModel.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>

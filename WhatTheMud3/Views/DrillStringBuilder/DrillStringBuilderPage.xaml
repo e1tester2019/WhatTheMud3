@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WhatTheMud3.Views.DrillStringBuilder.DrillStringBuilderPage"
+             xmlns:viewModel="clr-namespace:WhatTheMud3.ViewModels.DrillStringBuilder"
+             x:DataType="viewModel:DrillStringBuilderPageViewModel"
+             xmlns:dsModel="clr-namespace:WhatTheMud3.Models"
+             Title="Drill String Configurator"
+             xmlns:custom="clr-namespace:WhatTheMud3.CustomViews">
+	<ScrollView>
+		<StackLayout>
+			<Label Text="STRING SEGMENTS" FontSize="20" FontAttributes="Bold"/>
+			<Frame>
+				<VerticalStackLayout>
+					<StackLayout BindableLayout.ItemsSource="{Binding DrillString}" Spacing="2">
+						<BindableLayout.ItemTemplate>
+							<custom:SegmentItemTemplate/>
+						</BindableLayout.ItemTemplate>
+					</StackLayout>
+					<Grid ColumnDefinitions="*,*,*" Padding="0,2,0,0">
+						<Button Grid.Column="0" Text="Add" Command="{Binding GoToDrillEditDrillStringSegmentPageCommand}"/>
+						<Button Grid.Column="1" Text="Delete" Command="{Binding DeleteAllDrillStringSegmentsCommand}"/>
+						<Button Grid.Column="2" Text="Import"/>
+					</Grid>
+					
+				</VerticalStackLayout>
+			</Frame>
+			<Label Text="DOWNHOLE TOOLS" FontSize="20" FontAttributes="Bold"/>
+			<Frame>
+				<VerticalStackLayout>
+					<StackLayout BindableLayout.ItemsSource="{Binding DrillString}">
+						<BindableLayout.ItemTemplate>
+							<custom:SegmentItemTemplate/>
+						</BindableLayout.ItemTemplate>
+					</StackLayout>
+					<Grid ColumnDefinitions="*,*,*" Padding="0,2,0,0">
+						<Button Grid.Column="0" Text="Add" Command="{Binding GoToDrillEditDrillStringSegmentPageCommand}"/>
+						<Button Grid.Column="1" Text="Delete" Command="{Binding DeleteAllDrillStringSegmentsCommand}"/>
+						<Button Grid.Column="2" Text="Import"/>
+					</Grid>
+					
+				</VerticalStackLayout>
+			</Frame>
+
+			<!-- <ListView ItemsSource="{Binding DrillString}"> -->
+			<!-- 	<ListView.ItemTemplate> -->
+			<!-- 		<DataTemplate x:DataType="dsModel:Segment"> -->
+
+			<!-- 		</DataTemplate> -->
+			<!-- 	</ListView.ItemTemplate> -->
+			<!-- </ListView> -->
+		</StackLayout>
+	</ScrollView>
+</ContentPage>
