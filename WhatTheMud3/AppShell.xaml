@@ -27,6 +27,4 @@
 				Route="SettingsPage" />
 		</Tab>
 	</TabBar>
-
-
 </Shell>

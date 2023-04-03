@@ -1,5 +1,3 @@
-using Kotlin.Properties;
-
 namespace WhatTheMud3.Models;
 
 public partial class AppModel : ObservableObject
@@ -30,7 +28,7 @@ public partial class AppModel : ObservableObject
 	{
 		new Segment
 		{
-			id = Guid.NewGuid(),
+			Id = Guid.NewGuid(),
 			OuterDiameter = "177.8",
 			InnerDiameter = "159.41",
 			WeightInAir = "35.38",
@@ -45,7 +43,7 @@ public partial class AppModel : ObservableObject
 	{
 		new Segment
 		{
-			id = Guid.NewGuid(),
+			Id = Guid.NewGuid(),
 			OuterDiameter = "155.6",
 			TopDepth = "1578",
 			BottomDepth = "5834",
@@ -470,7 +468,7 @@ public partial class AppModel : ObservableObject
                 var ds_1 = DrillString.First();
                 var volume = (ds_1.BottomDepth_D - ds_1.TopDepth_D) * ds_1.Capacity_D;
 
-                appDrillStringSegments.Add(new AppSegment
+                AppDrillStringSegments.Add(new AppSegment
                 {
                     TopDepth = ds_1.TopDepth_D,
                     BottomDepth = ds_1.BottomDepth_D,
@@ -493,7 +491,7 @@ public partial class AppModel : ObservableObject
                 if (ds_2.TopDepth_D <= ds_1.TopDepth_D)
                 {
                     var volume = (ds_2.BottomDepth_D - ds_2.TopDepth_D) * ds_2.Capacity_D;
-                    appDrillStringSegments.Add(new AppSegment
+                    AppDrillStringSegments.Add(new AppSegment
                     {
                         TopDepth = ds_2.TopDepth_D,
                         BottomDepth = ds_2.BottomDepth_D,
@@ -510,7 +508,7 @@ public partial class AppModel : ObservableObject
                     var bottomDepth = ds_2.TopDepth_D < ds_1.BottomDepth_D ?
                         ds_2.TopDepth_D : ds_1.BottomDepth_D;
                     var volume = (bottomDepth - ds_1.TopDepth_D) * ds_1.Capacity_D;
-                    appDrillStringSegments.Add(new AppSegment
+                    AppDrillStringSegments.Add(new AppSegment
                     {
                         TopDepth = ds_1.TopDepth_D,
                         BottomDepth = bottomDepth,
@@ -528,7 +526,7 @@ public partial class AppModel : ObservableObject
                     var bottomDepth = ds_2.TopDepth_D < ds_1.BottomDepth_D ?
                         ds_2.TopDepth_D : ds_1.BottomDepth_D;
                     var volume = (ds_2.BottomDepth_D - bottomDepth) * ds_2.Capacity_D;
-                    appDrillStringSegments.Add(new AppSegment
+                    AppDrillStringSegments.Add(new AppSegment
                     {
                         TopDepth = bottomDepth,
                         BottomDepth = ds_2.BottomDepth_D,

@@ -2,8 +2,24 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WhatTheMud3.Views.DrillStringBuilder.EditDrillStringSegmentPage">
+             x:Class="WhatTheMud3.Views.DrillStringBuilder.EditDrillStringSegmentPage"
+             xmlns:viewModel="clr-namespace:WhatTheMud3.ViewModels.DrillStringBuilder"
+             xmlns:dataform="clr-namespace:Syncfusion;assembly=Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:dataForm="http://schemas.syncfusion.com/maui"
+             x:DataType="viewModel:EditDrillStringSegmentPageViewModel"
+             Title="{Binding Title}">
 	<ContentPage.Content>
-		
+		<Grid RowDefinitions="Auto,*,Auto" Padding="2">
+			<Label Text="Edit Segment" FontSize="20" FontAttributes="Bold" Grid.Row="0"/>
+			<Frame Grid.Row="1">
+				<dataForm:SfDataForm x:Name="segmentDataForm" DataObject="{Binding DrillStringSegment}">
+					<dataForm:SfDataForm.DefaultLayoutSettings>
+						<dataForm:DataFormDefaultLayoutSettings LabelPosition="Top"/>
+					</dataForm:SfDataForm.DefaultLayoutSettings>
+				</dataForm:SfDataForm>
+			</Frame>
+			<Button Text="Apply Changes"
+			        Command="{Binding UpdateSegmentCommand}" Grid.Row="2"/>
+		</Grid>
 	</ContentPage.Content>
 </ContentPage>

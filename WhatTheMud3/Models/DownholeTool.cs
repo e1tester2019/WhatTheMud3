@@ -26,12 +26,12 @@ public partial class DownholeTool : ObservableObject
 
 	public double ActivationPressure_D
 	{
-		get => convertToDouble(ActivationPressure);
+		get => ConvertToDouble(ActivationPressure);
 	}
 
 	public double MeasuredDepth_D
 	{
-		get => convertToDouble(MeasuredDepth);
+		get => ConvertToDouble(MeasuredDepth);
 	}
 	public double TVD_D;
 	
@@ -50,7 +50,7 @@ public partial class DownholeTool : ObservableObject
 	[ObservableProperty]
 	private double currentfunctionPressure;
 
-	private double convertToDouble(string value)
+	private double ConvertToDouble(string value)
 	{
 		double val;
 		bool result = (double.TryParse(value, out val));

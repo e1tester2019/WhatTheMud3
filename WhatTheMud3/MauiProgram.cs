@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using WhatTheMud3.ViewModels.DrillStringBuilder;
 using WhatTheMud3.Views.DrillStringBuilder;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace WhatTheMud3;
 
@@ -11,6 +12,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+			.ConfigureSyncfusionCore()
 			.UseMauiApp<App>()
 			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
@@ -30,7 +32,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<DownholeToolsPage>();
 		builder.Services.AddSingleton<RestrictionsPage>();
 
-		builder.Services.AddTransient<EditDrillStringSectionPageViewModel>();
+		builder.Services.AddTransient<EditDrillStringSegmentPageViewModel>();
 		builder.Services.AddTransient<EditDrillStringSegmentPage>();
 		
 

@@ -29,9 +29,9 @@
 			<Label Text="DOWNHOLE TOOLS" FontSize="20" FontAttributes="Bold"/>
 			<Frame>
 				<VerticalStackLayout>
-					<StackLayout BindableLayout.ItemsSource="{Binding DrillString}">
+					<StackLayout BindableLayout.ItemsSource="{Binding Downholetools}">
 						<BindableLayout.ItemTemplate>
-							<custom:SegmentItemTemplate/>
+							<custom:DownholeToolItemTemplate/>
 						</BindableLayout.ItemTemplate>
 					</StackLayout>
 					<Grid ColumnDefinitions="*,*,*" Padding="0,2,0,0">

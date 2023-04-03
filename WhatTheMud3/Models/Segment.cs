@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
 namespace WhatTheMud3.Models;
@@ -5,37 +6,44 @@ namespace WhatTheMud3.Models;
 public partial class Segment : ObservableObject
 {
 	public Guid Id = Guid.NewGuid();
+	[Display(Name = "Outer Diameter (mm)")]
 	[ObservableProperty] private string outerDiameter;
+	[Display(Name = "Inner Diameter (mm)")]
 	[ObservableProperty] private string innerDiameter;
+	[Display(Name = "Weight in Air (kg/m)")]
 	[ObservableProperty] private string weightInAir;
+	[Display(Name = "Top Depth (m)")]
 	[ObservableProperty] private string topDepth;
+	[Display(Name = "Bottom Depth (m)")]
 	[ObservableProperty] private string bottomDepth;
+	[Display(Name = "Fluid Type")]
 	[ObservableProperty] private string fluidType;
+	[Display(Name = "Mud Density (kg/m)")]
 	[ObservableProperty] private string mudDensity;
 
 	public double OuterDiameter_D
 	{
-		get => convertToDouble(OuterDiameter);
+		get => ConvertToDouble(OuterDiameter);
 	}
 
 	public double InnerDiameter_D
 	{
-		get => convertToDouble(InnerDiameter);
+		get => ConvertToDouble(InnerDiameter);
 	}
 
 	public double Weight_D
 	{
-		get => convertToDouble(WeightInAir);
+		get => ConvertToDouble(WeightInAir);
 	}
 
 	public double TopDepth_D
 	{
-		get => convertToDouble(TopDepth);
+		get => ConvertToDouble(TopDepth);
 	}
 
 	public double BottomDepth_D
 	{
-		get => convertToDouble(BottomDepth);
+		get => ConvertToDouble(BottomDepth);
 	}
 
 	public double Capacity_D
@@ -50,10 +58,10 @@ public partial class Segment : ObservableObject
 
 	public double MudDensity_D
 	{
-		get => convertToDouble(MudDensity);
+		get => ConvertToDouble(MudDensity);
 	}
 
-	private double convertToDouble(string value)
+	private double ConvertToDouble(string value)
 	{
 		double val;
 		bool result = (double.TryParse(value, out val));

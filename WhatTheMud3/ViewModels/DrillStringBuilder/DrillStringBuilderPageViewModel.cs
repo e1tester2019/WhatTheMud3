@@ -4,6 +4,7 @@ public partial class DrillStringBuilderPageViewModel : BaseViewModel
 {
 	private readonly AppModel _appModel;
 	[ObservableProperty] private Collection<Segment> drillString;
+	[ObservableProperty] private Collection<DownholeTool> downholetools;
 
 	[ObservableProperty]
 	[NotifyPropertyChangedFor(nameof(ShouldNotImportDrillStringSections))]
@@ -20,6 +21,7 @@ public partial class DrillStringBuilderPageViewModel : BaseViewModel
 		Title = "Drill String Configurator";
 		this._appModel = appModel;
 		this.DrillString = appModel.DrillString;
+		this.Downholetools = appModel.Downholetools;
 	}
 
 	[RelayCommand]
